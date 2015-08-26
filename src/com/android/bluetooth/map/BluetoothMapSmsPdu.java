@@ -471,7 +471,7 @@ public class BluetoothMapSmsPdu {
         int activePhone = TelephonyManager.getDefault().getCurrentPhoneType(); // TODO: Change to use: ((TelephonyManager)myContext.getSystemService(Context.TELEPHONY_SERVICE))
         int phoneType;
         GsmAlphabet.TextEncodingDetails ted = (PHONE_TYPE_CDMA == activePhone) ?
-            com.android.internal.telephony.cdma.SmsMessage.calculateLength((CharSequence)messageText, false) :
+            com.android.internal.telephony.cdma.SmsMessage.calculateLength((CharSequence)messageText, false, true) : // true? we'll see lol
             com.android.internal.telephony.gsm.SmsMessage.calculateLength((CharSequence)messageText, false);
 
         SmsPdu newPdu;
